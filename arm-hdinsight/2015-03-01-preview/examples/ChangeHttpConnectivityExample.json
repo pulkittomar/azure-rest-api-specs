@@ -13,7 +13,7 @@
   "responses": {
     "202": {
       "headers": {
-        "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.Cache/...pathToOperationResult..."
+        "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.Compute/...pathToOperationResult..."
       }
     },
     "200": {
