@@ -173,7 +173,11 @@
           "Clusters"
         ],
         "operationId": "Clusters_Create",
-        "description": "Create a new HDInsight cluster.",
+        "description": "Begins creating a new HDInsight cluster with the specified parameters.",
+        "x-ms-examples": {
+          "Cluster create example": { "$ref": "../examples/clustercreate1.json" }
+        },
+
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -206,12 +210,6 @@
           }
         ],
         "responses": {
-          "412": {
-            "description": "PreconditionFailed response definition.",
-            "schema": {
-              "$ref": "#/definitions/Cluster"
-            }
-          },
           "200": {
             "description": "OK response definition.",
             "schema": {
@@ -1298,17 +1296,21 @@
     "HttpConnectivitySettings": {
       "properties": {
         "restAuthCredential.isEnabled": {
+          "x-ms-client-name": "enabledCredential",
           "type": "boolean",
           "description": "Gets or sets the whether or not HTTP is enabled."
         },
         "restAuthCredential.username": {
+          "x-ms-client-name": "username",
           "type": "string",
           "description": "Gets or sets the http username."
         },
         "restAuthCredential.password": {
+          "x-ms-client-name": "password",
           "type": "string",
           "description": "Gets or sets the http user password."
         }
+
       },
       "description": "The payload for a Configure HTTP settings request."
     },
