@@ -25,6 +25,9 @@
         ],
         "operationId": "Clusters_ConfigureRdpSettings",
         "description": "Begins configuring the RDP settings on the specified cluster.",
+        "x-ms-examples": {
+          "Change RDP settings": { "$ref": "../examples/RDPSettingExample.json" }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -38,6 +41,7 @@
             "in": "path",
             "required": true,
             "type": "string",
+            "pattern": "^[0-9a-zA-Z][0-9a-zA-Z-]*[a-zA-Z0-9]$",
             "description": "The name of the cluster."
           },
           {
@@ -57,8 +61,11 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Ok response definition"
+          },
           "202": {
-            "description": ""
+            "description": "Accepted response definition"
           }
         },
         "x-ms-long-running-operation": true
@@ -71,6 +78,10 @@
         ],
         "operationId": "Clusters_ConfigureHttpSettings",
         "description": "Begins configuring the HTTP settings on the specified cluster.",
+        "x-ms-examples": {
+          "Change Http settings": { "$ref": "../examples/ChangeHttpConnectivityExample.json" },
+          "Disable Http settings": { "$ref": "../examples/ChangeHttpConnectivityExample2.json" }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -103,8 +114,14 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Ok response definition"
+          },
           "202": {
-            "description": ""
+            "description": "Accepted response definition"
+          },
+          "204": {
+            "description": "No content response definition"
           }
         },
         "x-ms-long-running-operation": true
@@ -115,6 +132,9 @@
         ],
         "operationId": "Clusters_GetConnectivitySettings",
         "description": "Gets the connectivity settings for the specified cluster.",
+        "x-ms-examples": {
+          "Get Http settings": { "$ref": "../examples/GetHttpConnectivityExample.json" }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -743,7 +763,7 @@
         "expiryDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Gets or sets the RDP expiry date."
+          "description": "Gets or sets the RDP expiry date(YYYY-MM-DD)."
         }
       }
     },

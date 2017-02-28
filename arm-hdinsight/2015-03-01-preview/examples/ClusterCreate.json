@@ -1,0 +1,22 @@
+{
+  "parameters": {
+    "name": "cluster1",
+    "resourceGroupName": "rg1",
+    "api-version": "2015-03-01-preview",
+    "subscriptionId": "subid",
+    "clusterCreateParameters": {
+
+    }
+  },
+  "responses": {
+    "200": {
+        "headers": {
+        "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.Cache/...pathToOperationResult..."
+      }
+    },
+    "412": {
+    },
+    "204": {
+    }
+  }
+}
