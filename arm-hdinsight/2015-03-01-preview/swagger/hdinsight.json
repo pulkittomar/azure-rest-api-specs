@@ -26,7 +26,9 @@
         "operationId": "Clusters_ConfigureRdpSettings",
         "description": "Begins configuring the RDP settings on the specified cluster.",
         "x-ms-examples": {
-          "Change RDP settings": { "$ref": "../examples/RDPSettingExample.json" }
+          "Change RDP settings": {
+            "$ref": "../examples/RDPSettingExample.json"
+          }
         },
         "parameters": [
           {
@@ -79,8 +81,12 @@
         "operationId": "Clusters_ConfigureHttpSettings",
         "description": "Begins configuring the HTTP settings on the specified cluster.",
         "x-ms-examples": {
-          "Change Http settings": { "$ref": "../examples/ChangeHttpConnectivityExample.json" },
-          "Disable Http settings": { "$ref": "../examples/ChangeHttpConnectivityExample2.json" }
+          "Change Http settings": {
+            "$ref": "../examples/ChangeHttpConnectivityExample.json"
+          },
+          "Disable Http settings": {
+            "$ref": "../examples/ChangeHttpConnectivityExample2.json"
+          }
         },
         "parameters": [
           {
@@ -133,7 +139,9 @@
         "operationId": "Clusters_GetConnectivitySettings",
         "description": "Gets the connectivity settings for the specified cluster.",
         "x-ms-examples": {
-          "Get Http settings": { "$ref": "../examples/GetHttpConnectivityExample.json" }
+          "Get Http settings": {
+            "$ref": "../examples/GetHttpConnectivityExample.json"
+          }
         },
         "parameters": [
           {
@@ -175,9 +183,10 @@
         "operationId": "Clusters_Create",
         "description": "Begins creating a new HDInsight cluster with the specified parameters.",
         "x-ms-examples": {
-          "Cluster create example": { "$ref": "../examples/clustercreate1.json" }
+          "Cluster create example": {
+            "$ref": "../examples/CreateLinuxHadoopSshPassword.json"
+          }
         },
-
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -1310,7 +1319,6 @@
           "type": "string",
           "description": "Gets or sets the http user password."
         }
-
       },
       "description": "The payload for a Configure HTTP settings request."
     },
