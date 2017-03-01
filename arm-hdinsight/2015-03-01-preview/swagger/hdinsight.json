@@ -233,6 +233,9 @@
           },
           "Create Hadoop on Linux cluster with SSH public key": {
             "$ref": "../examples/CreateLinuxHadoopSshPublicKey.json"
+          },
+          "Create Spark on Linux cluster with SSH password": {
+            "$ref": "../examples/CreateLinuxSparkSshPassword.json"
           }
         },
         "parameters": [
