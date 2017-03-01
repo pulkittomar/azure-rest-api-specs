@@ -2,6 +2,7 @@ TODO:
 
 Swagger needed
  * Application PUT, GET, list
+ * All response objects
 
 Examples needed
  * Application PUT, GET, list
