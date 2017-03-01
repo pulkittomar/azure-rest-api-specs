@@ -320,7 +320,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight//clusters/{clusterName}/scriptActions/{scriptName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/scriptActions/{scriptName}": {
       "delete": {
         "tags": [
           "Clusters"
@@ -532,7 +532,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight//clusters/{clusterName}/scriptExecutionHistory/{scriptExecutionId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/scriptExecutionHistory/{scriptExecutionId}": {
       "get": {
         "tags": [
           "Clusters"
@@ -579,7 +579,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight//clusters/{clusterName}/scriptExecutionHistory": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/scriptExecutionHistory": {
       "get": {
         "tags": [
           "Clusters"
@@ -656,7 +656,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight//clusters/{clusterName}/scriptExecutionHistory/{scriptExecutionId}/promote": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/scriptExecutionHistory/{scriptExecutionId}/promote": {
       "post": {
         "tags": [
           "Clusters"
@@ -700,7 +700,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/roles/workernode/resize": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/roles/{roleName}/resize": {
       "post": {
         "tags": [
           "Clusters"
@@ -714,6 +714,16 @@
             "required": true,
             "type": "string",
             "description": "The name of the resource group."
+          },
+          {
+            "name":"roleName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The constant value for the roleName",
+            "enum": [
+              "workernode"
+            ]
           },
           {
             "name": "clusterName",
@@ -766,6 +776,31 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/ClusterListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.HDinsight/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "description": "Lists all of the available HDInsight REST API operations.",
+        "operationId": "ListOperations",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
             }
           }
         },
