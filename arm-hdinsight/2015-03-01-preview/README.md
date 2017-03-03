@@ -2,6 +2,7 @@
 
 ## Swagger needed:
  * Application PUT, GET, list
+ * Monitoring PUT, GET, list
  * All response objects
 ## Examples needed:
  * Application PUT, GET, list Clarify TODO list

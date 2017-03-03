@@ -234,7 +234,7 @@
           "Create Hadoop on Linux cluster with SSH public key": {
             "$ref": "../examples/CreateLinuxHadoopSshPublicKey.json"
           },
-          "Create Spark on Linux cluster with SSH password": {
+          "Create Spark on Linux Cluster with SSH password": {
             "$ref": "../examples/CreateLinuxSparkSshPassword.json"
           }
         },
@@ -805,6 +805,358 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/applications": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "Lists all of the applications HDInsight cluster.",
+        "operationId": "Applications_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/applications/{applicationName}": {
+      "get": {
+        "tags": [
+          "Application_Properties"
+        ],
+        "description": "Lists all of the applications HDInsight cluster.",
+        "operationId": "Applications",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "name": "applicationName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The constant value for the applicationName",
+            "enum": [
+              "hue"
+            ],
+            "x-ms-enum": {
+              "name": "ApplicationName",
+              "modelAsString": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationListResult"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Application_Properties"
+        ],
+        "description": "Lists all of the applications HDInsight cluster.",
+        "operationId": "Applications",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "name": "applicationName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The constant value for the applicationName",
+            "enum": [
+              "hue"
+            ],
+            "x-ms-enum": {
+              "name": "ApplicationName",
+              "modelAsString": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationListResult"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "Lists all of the applications HDInsight cluster.",
+        "operationId": "Applications",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "name": "applicationName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The constant value for the applicationName",
+            "enum": [
+              "hue"
+            ],
+            "x-ms-enum": {
+              "name": "ApplicationName",
+              "modelAsString": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationListResult"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/extensions/{extensionName}": {
+      "put": {
+        "tags": [
+          "Extensions"
+        ],
+        "description": "Create HDInsight cluster extension.",
+        "operationId": "Extension_Put",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster."
+          },
+          {
+            "name": "extensionsCreateParameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExtensionsCreateParametersExtended"
+            },
+            "description": "The cluster extensions create request."
+          },
+          {
+            "name": "extensionName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster extension.",
+            "enum": [
+              "clustermonitoring"
+            ],
+            "x-ms-enum": {
+              "name": "ExtensionName",
+              "modelAsString": false
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "name": "extensionName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The constant value for the extensionName",
+            "enum": [
+              "clustermonitoring"
+            ],
+            "x-ms-enum": {
+              "name": "ExtensionName",
+              "modelAsString": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Extensions"
+        ],
+        "description": "Get extension properties for HDInsight cluster extension.",
+        "operationId": "Extension_Get",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster."
+          },
+          {
+            "name": "extensionName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster extension.",
+            "enum": [
+              "clustermonitoring"
+            ],
+            "x-ms-enum": {
+              "name": "ExtensionName",
+              "modelAsString": false
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/Extension"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Extensions"
+        ],
+        "description": "Delete extension for HDInsight cluster.",
+        "operationId": "Extension_Delete",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster."
+          },
+          {
+            "name": "extensionName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the cluster extension.",
+            "enum": [
+              "clustermonitoring"
+            ],
+            "x-ms-enum": {
+              "name": "ExtensionName",
+              "modelAsString": false
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          }
         }
       }
     }
@@ -1788,7 +2140,7 @@
       }
     },
     "OperationListResult": {
-      "description": "Result of the request to list CDN operations. It contains a list of operations and a URL link to get the next set of results.",
+      "description": "Result of the request to list HDInsight operations. It contains a list of operations and a URL link to get the next set of results.",
       "properties": {
         "value": {
           "type": "array",
@@ -1800,6 +2152,54 @@
         "nextLink": {
           "type": "string",
           "description": "URL to get the next set of operation list results if there are any."
+        }
+      }
+    },
+    "Application": {
+      "description": "HDInsight cluster application",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "application": {
+              "description": "Application",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ApplicationListResult": {
+      "description": "Result of the request to list cluster Applications. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Application"
+          },
+          "description": "List of HDInsight applications installed on HDInsight cluster."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to get the next set of operation list results if there are any."
+        }
+      }
+    },
+    "ExtensionsCreateParametersExtended" :{
+      "description": "Cluster monitoring extensions",
+      "properties": {
+         "workspaceId": {
+          "description": "Workspace Id for cluster monitoring extension",
+          "type": "string"
+        },
+         "primaryKey": {
+          "description": "Certificate for monitoring extensions",
+          "type": "string"
         }
       }
     }
