@@ -347,6 +347,7 @@
       }
     },
     "WindowsOperatingSystemProfile": {
+      "description": "Gets or Sets Windows operation system settings.",
       "properties": {
         "rdpSettings": {
           "$ref": "#/definitions/RdpSettings",
@@ -420,7 +421,7 @@
     "HttpSettingsParameters": {
       "properties": {
         "restAuthCredential.isEnabled": {
-          "type": "boolean",
+          "type": "string",
           "description": "Gets or sets the whether or not HTTP is enabled."
         },
         "restAuthCredential.username": {
@@ -597,7 +598,7 @@
       "description": "Describes the compute profile."
     },
     "ClusterCreateProperties": {
-      "description": "",
+      "description": "Gets or sets cluster create parameters.",
       "properties": {
         "clusterVersion": {
           "type": "string",
@@ -685,7 +686,7 @@
       }
     },
     "ConnectivityEndpoint": {
-     "description": "",
+     "description": "Gets or sets the connectivity properties",
       "properties": {
         "name": {
           "type": "string",

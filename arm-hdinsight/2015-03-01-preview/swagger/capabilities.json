@@ -65,11 +65,36 @@
           }
         }
       }
+    },
+    "/providers/Microsoft.HDinsight/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "description": "Lists all of the available HDInsight REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "./cluster.json#/definitions/OperationListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
     }
   },
   "definitions": {
     "VersionSpec": {
-     "description": "",
+     "description": "Gets or sets Version spec properties.",
       "properties": {
         "friendlyName": {
           "type": "string",
@@ -80,12 +105,12 @@
           "description": "Display Name"
         },
         "isDefault": {
-          "type": "boolean",
-          "description": "Value true if the version is the default version"
+          "type": "string",
+          "description": "Value true if the version is the default version."
         },
         "componentVersions": {
           "type": "object",
-          "description": "",
+          "description": "Gets or Sets component version property.",
           "additionalProperties": {
             "type": "string"
           }
@@ -93,7 +118,7 @@
       }
     },
     "VersionsCapability": {
-     "description": "",
+     "description": "Gets or sets version capability.",
       "properties": {
         "available": {
           "type": "array",
@@ -104,6 +129,7 @@
       }
     },
     "RegionsCapability": {
+      "description": "Gets or sets version regions capability.",
       "properties": {
         "available": {
           "type": "array",
@@ -114,7 +140,7 @@
       }
     },
     "VmSizesCapability": {
-     "description": "",
+     "description": "Gets or sets virtual machine sizes capability.",
       "properties": {
         "available": {
           "type": "array",
@@ -125,7 +151,7 @@
       }
     },
     "VmSizeCompatibilityFilter": {
-     "description": "",
+     "description": "Gets or sets virtual machine type compatibility filter.",
       "properties": {
         "FilterMode": {
           "type": "string"
@@ -163,7 +189,7 @@
       }
     },
     "RegionalQuotaCapability": {
-     "description": "",
+     "description": "Gets or sets regional quota capacity.",
       "properties": {
         "region_name": {
           "type": "string"
@@ -179,7 +205,7 @@
       }
     },
     "QuotaCapability": {
-     "description": "",
+     "description": "Gets or sets regional quota capacity.",
       "properties": {
         "regionalQuotas": {
           "type": "array",
@@ -190,6 +216,7 @@
       }
     },
     "CapabilitiesResult": {
+     "description": "Gets capabilities as result.",      
       "properties": {
         "versions": {
           "type": "object",
@@ -287,4 +314,5 @@
       "description": "Client Api Version."
     }
   }
+
 }

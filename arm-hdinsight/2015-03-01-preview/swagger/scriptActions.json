@@ -300,6 +300,31 @@
           }
         }
       }
+    },
+    "/providers/Microsoft.HDinsight/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "description": "Lists all of the available HDInsight REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "./cluster.json#/definitions/OperationListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
     }
   },
   "definitions": {
@@ -389,9 +414,18 @@
     },
     "ScriptActionsList": {
       "description": "Gets all persisted script action for the cluster.",
-      "type": "array",
-      "items": {
-        "$ref": "./cluster.json#/definitions/RuntimeScriptActionDetail"
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "./cluster.json#/definitions/RuntimeScriptActionDetail"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The link (url) to the next page of results."
+        }
       }
     }
   },
