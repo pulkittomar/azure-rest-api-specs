@@ -133,7 +133,7 @@
           "Applications"
         ],
         "description": "Lists all of the applications HDInsight cluster.",
-        "operationId": "Applications_Put",
+        "operationId": "Applications_Create",
         "x-ms-examples": {
           "Create Application": {
             "$ref":"../examples/CreateApplication.json"
@@ -189,7 +189,7 @@
           "Applications"
         ],
         "description": "Lists all of the applications HDInsight cluster.",
-        "operationId": "Applications",
+        "operationId": "Applications_Delete",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -264,13 +264,13 @@
       "type": "object",
       "properties": {
         "ComputeProfile": {
-          "$ref":"./cluster#/definitions/ComputeProfile",
+          "$ref":"./cluster.json#/definitions/ComputeProfile",
           "description": "Gets or sets the list of roles in the cluster."
         },
         "InstallScriptActions": {
           "type": "array",
           "items": {
-            "$ref": "./cluster#/definitions/RuntimeScriptAction"
+            "$ref": "./cluster.json#/definitions/RuntimeScriptAction"
           },
           "description": "Gets uninstall script actions."          
         },
@@ -306,7 +306,7 @@
         "ErrorInfos": {
           "type": "array",
           "items": {
-            "$ref": "./cluster#/definitions/ErrorInfo"
+            "$ref": "./cluster.json#/definitions/ErrorInfo"
           },
           "description": "Gets or sets the list of errors."
         },
