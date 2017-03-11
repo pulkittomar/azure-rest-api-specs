@@ -219,6 +219,31 @@
           }
         }
       }
+    },
+    "/providers/Microsoft.HDinsight/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "description": "Lists all of the available HDInsight REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "./cluster.json#/definitions/OperationListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
     }
   },
   "definitions": {
@@ -237,14 +262,6 @@
           "type": "string",
           "format": "date-time",
           "description": "Gets or sets the RDP expiry date(YYYY-MM-DD)."
-        }
-      }
-    },
-    "WindowsOperatingSystemProfile": {
-      "properties": {
-        "rdpSettings": {
-          "$ref": "#/definitions/RdpSettings",
-          "description": "Gets or sets the RDP settings."
         }
       }
     },
@@ -290,7 +307,7 @@
       "description": "Gets or sets the Windows operation systems profile, and configure remote desktop settings.",
       "properties": {
         "windowsOperatingSystemProfile": {
-          "$ref": "#/definitions/WindowsOperatingSystemProfile",
+          "$ref": "./cluster.json#/definitions/WindowsOperatingSystemProfile",
           "description": "Gets or sets the Windows OS profile."
         },
         "linuxOperatingSystemProfile": {

@@ -40,7 +40,7 @@
           "Extensions"
         ],
         "description": "Create HDInsight cluster extension.",
-        "operationId": "Extension_Put",
+        "operationId": "Extension_Create",
         "x-ms-examples": {
           "Create Hadoop on Linux cluster with SSH password": {
             "$ref": "../examples/CreateExtension.json"
@@ -194,6 +194,31 @@
           "200": {
             "description": "OK response definition."
           }
+        }
+      }
+    },
+    "/providers/Microsoft.HDinsight/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "description": "Lists all of the available HDInsight REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "./cluster.json#/definitions/OperationListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         }
       }
     }
