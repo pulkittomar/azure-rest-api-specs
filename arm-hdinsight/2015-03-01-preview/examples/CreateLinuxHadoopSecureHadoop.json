@@ -7,14 +7,14 @@
         "clusterCreateParameters": {
             "clusterVersion": "3.5",
             "osType": "Linux",
-            "tier": "Standard",
+            "tier": "premium",
             "clusterDefinition": {
                 "kind": "Hadoop",
                 "configurations": {
                     "gateway": {
                         "restAuthCredential.isEnabled": true,
                         "restAuthCredential.username": "admin",
-                        "restAuthCredential.password": "password"
+                        "restAuthCredential.password": "restPassword"
                     }
                 }
             },
@@ -24,10 +24,19 @@
                         "name": "mystorage",
                         "isDefault": true,
                         "container": "containername",
-                        "key": "storagekey"
+                        "key": "storage account key"
                     }
                 ]
-            },
+            },				
+            "securityProfile": {					
+					"directoryType": "ActiveDirectory",
+					"domain": "DomainName",
+					"organizationalUnitDN": "OU=Hadoop,DC=hdinsight,DC=test",
+					"ldapsUrls": "ldaps://10.10.0.4:636",
+					"domainUsername": "DomainUsername",
+					"domainUserPassword": "DomainPassword",
+					"clusterUsersGroupDNs": "hdiusers"
+				},
             "computeProfile": {
                 "roles": [
                     {
@@ -40,15 +49,21 @@
                         "osProfile": {
                             "linuxOperatingSystemProfile": {
                                 "username": "sshuser",
+                                "password": "sshuserpassword",
                                 "sshProfile": {
                                     "publicKeys": [
                                         {
-                                            "certificateData": "ssh-rsa **********== phpseclib-generated-key"
+                                            "certificateData": "sshPublicKey"
                                         }
                                     ]
                                 }
                             }
-                        }
+                        },
+                        "virtualNetworkProfile": {
+                            "id": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            "subnet": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet"
+                        },
+                        "scriptActions": [ ]
                     },
                     {
                         "name": "workernode",
@@ -60,9 +75,21 @@
                         "osProfile": {
                             "linuxOperatingSystemProfile": {
                                 "username": "sshuser",
-                                "password": "sshpassword"
+                                "password": "sshuserpassword",
+                                "sshProfile": {
+                                    "publicKeys": [
+                                        {
+                                            "certificateData": "sshPublicKey"
+                                        }
+                                    ]
+                                }
                             }
-                        }
+                        },
+                        "virtualNetworkProfile": {
+                            "id": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            "subnet": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet"
+                        },
+                        "scriptActions": [ ]
                     },
                     {
                         "name": "zookeepernode",
@@ -74,9 +101,21 @@
                         "osProfile": {
                             "linuxOperatingSystemProfile": {
                                 "username": "sshuser",
-                                "password": "sshpassword"
+                                "password": "sshuserpassword",
+                                "sshProfile": {
+                                    "publicKeys": [
+                                        {
+                                            "certificateData": "[parameters('sshPublicKey')]"
+                                        }
+                                    ]
+                                }
                             }
-                        }
+                        },
+                        "virtualNetworkProfile": {
+                            "id": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            "subnet": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet"
+                        },
+                        "scriptActions": [ ]
                     }
                 ]
             }

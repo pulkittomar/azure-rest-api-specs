@@ -22,7 +22,6 @@
         "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
       }
     },
-    "400": {},
-    "409": {}
+    "200": {}
   }
 }

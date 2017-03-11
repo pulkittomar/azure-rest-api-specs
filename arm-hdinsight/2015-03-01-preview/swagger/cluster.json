@@ -53,6 +53,9 @@
           },
           "Create Windows Cluster": {
             "$ref": "../examples/CreateWindowsHadoopRdp.json"
+          },
+          "Create Secure Hadoop cluster": {
+            "$ref": "../examples/CreateLinuxHadoopSecureHadoop.json"
           }
         },
         "parameters": [

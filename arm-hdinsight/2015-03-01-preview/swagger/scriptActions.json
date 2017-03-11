@@ -104,7 +104,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ExecuteScriptActionParameters"
+              "$ref": "./cluster.json#/definitions/ExecuteScriptActionParameters"
             },
             "description": "The parameters for executing script actions."
           },
@@ -309,7 +309,7 @@
           "readOnly": true,
           "type": "array",
           "items": {
-            "$ref": "./cluster#/definitions/RuntimeScriptActionDetail"
+            "$ref": "./cluster.json#/definitions/RuntimeScriptActionDetail"
           }
         },
         "nextLink": {
