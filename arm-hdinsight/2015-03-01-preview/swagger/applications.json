@@ -41,6 +41,11 @@
         ],
         "description": "Lists all of the applications HDInsight cluster.",
         "operationId": "Applications_List",
+        "x-ms-examples": {
+          "Get All Applications for an HDInsight cluster": {
+            "$ref": "../examples/GetAllApplications.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -83,6 +88,14 @@
         ],
         "description": "List properties of the application.",
         "operationId": "Applications_Get",
+        "x-ms-examples": {
+          "Get application on HDInsight cluster successfully created.": {
+            "$ref": "../examples/GetApplicationCreated.json"
+          },
+         "Get application on HDInsight cluster creation in progress": {
+            "$ref": "../examples/GetApplicationInProgress.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -110,9 +123,6 @@
             "required": true,
             "type": "string",
             "description": "The constant value for the applicationName",
-            "enum": [
-              "hue"
-            ],
             "x-ms-enum": {
               "name": "ApplicationName",
               "modelAsString": true
@@ -190,6 +200,11 @@
         ],
         "description": "Lists all of the applications HDInsight cluster.",
         "operationId": "Applications_Delete",
+        "x-ms-examples": {
+          "Delete Application from HDInsight cluster": {
+            "$ref": "../examples/DeleteApplication.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -230,14 +245,40 @@
           "200": {
             "description": "OK. The request has succeeded."
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       }
     }
   },
   "definitions": {
     "ApplicationGetHttpsEndpoint": {
       "description": "Gets application access modes",
-      "type": "string"
+      "type": "object",
+      "properties": {
+        "accessModes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": ["string", "null"],
+          "description": "Gets the location of the endpoint."
+        },
+        "destinationPort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Gets the destinationPort to connect to."
+        },
+        "publicPort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Gets the publicPort to connect to."
+        },
+        "additionalProperties": {
+          "type": "string"
+        } 
+      }
     },
     "ApplicationGetEndpoint": {
       "description": "Gets Application ssh endpoint",
@@ -263,45 +304,49 @@
       "description": "HDInsight cluster application.",
       "type": "object",
       "properties": {
-        "ComputeProfile": {
+        "computeProfile": {
           "$ref": "./cluster.json#/definitions/ComputeProfile",
           "description": "Gets or sets the list of roles in the cluster."
         },
-        "InstallScriptActions": {
+        "installScriptActions": {
           "type": "array",
           "items": {
             "$ref": "./cluster.json#/definitions/RuntimeScriptAction"
           },
           "description": "Gets uninstall script actions."
         },
-        "UninstallScriptActions": {
+        "uninstallScriptActions": {
           "type": "array",
           "items": {
             "$ref": "./cluster.json#/definitions/RuntimeScriptAction"
           },
           "description": "Gets uninstall script actions."
         },
-        "HttpsEndpoints": {
+        "httpsEndpoints": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ApplicationGetHttpsEndpoint"
           },
           "description": "Gets application Https endpoints."
         },
-        "SshEndpoints": {
+        "sshEndpoints": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ApplicationGetEndpoint"
           },
           "description": "Gets application ssh endpoints."
         },
-        "ProvisioningState": {
+        "provisioningState": {
           "type": "string",
           "description": "Gets the provisioning state of the application"
         },
-        "ApplicationState": {
+        "applicationType": {
           "type": "string",
-          "description": "Gets the Application state"
+          "description": "Gets the Application type."
+        },
+        "applicationState": {
+          "type": "string",
+          "description": "Gets the Application state."
         },
         "ErrorInfos": {
           "type": "array",
@@ -310,10 +355,16 @@
           },
           "description": "Gets or sets the list of errors."
         },
-        "CreatedDate": {
+        "createdDate": {
           "type": "string",
-          "format": "date",
           "description": "Gets the application created date time."
+        },
+        "marketplaceIdentifier": {
+          "type": "string",
+          "description": "Gets the Marketplace identifier."
+        },
+        "additionalProperties": {
+            "type": "string"
         }
       }
     },
@@ -333,12 +384,12 @@
           "description": "Gets or sets the type of application.",
           "type": "string"
         },
-        "eTag": {
+        "etag": {
           "description": "Gets or sets the ETag for the application",
           "type": "string"
         },
         "tags": {
-          "type": "object",
+          "type": ["object", "null"],
           "additionalProperties": {
             "type": "string"
           },

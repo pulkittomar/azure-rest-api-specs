@@ -11,9 +11,9 @@
                 "value": [
                     {
                         "scriptExecutionId": 386120808773799,
-                        "name": "dss-install-dss",
-                        "applicationName": "dss",
-                        "uri": "http://downloads.dataiku.com/public/hdi-app/20170301/hdinsight-dss-install.sh",
+                        "name": "app-install",
+                        "applicationName": "app",
+                        "uri": "http://app.com/public/hdi-app/20170301/hdinsight-app-install.sh",
                         "parameters": "",
                         "roles": [
                             "edgenode"

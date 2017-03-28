@@ -573,7 +573,10 @@
           "description": "Gets or sets the location of the cluster."
         },
         "tags": {
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "x-nullable": true,
           "additionalProperties": {
             "type": "string"
@@ -834,14 +837,12 @@
         },
         "startTime": {
           "readOnly": true,
-          "type": "string",
-          "format": "date-time",
+          "type": "string",         
           "description": "Gets the start time of script action execution."
         },
         "endTime": {
           "readOnly": true,
           "type": "string",
-          "format": "date-time",
           "description": "Gets the end time of script action execution."
         },
         "status": {
@@ -986,7 +987,10 @@
           "description": "Resource location"
         },
         "tags": {
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "x-nullable": true,
           "additionalProperties": {
             "type": "string"
