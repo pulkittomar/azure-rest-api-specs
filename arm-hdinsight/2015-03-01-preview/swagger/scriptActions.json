@@ -84,6 +84,11 @@
         ],
         "operationId": "Clusters_ExecuteScriptActions",
         "description": "Begins executing script actions on the specified HDInsight cluster.",
+        "x-ms-examples": {
+          "Execute script action on HDInsight cluster": {
+            "$ref": "../examples/PostExecuteScriptAction.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -133,6 +138,11 @@
         ],
         "operationId": "ScriptActions_List",
         "description": "Lists all persisted script actions for the given cluster.",
+        "x-ms-examples": {
+          "List all persisted script actions for the given cluster": {
+            "$ref": "../examples/GetLinuxHadoopScriptAction.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -175,6 +185,11 @@
         ],
         "operationId": "ScriptExecutionHistory_Get",
         "description": "Gets the script execution detail for the given script execution id.",
+        "x-ms-examples": {
+          "Get script execution history by script id": {
+            "$ref": "../examples/GetScriptActionById.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -194,8 +209,7 @@
             "name": "scriptExecutionId",
             "in": "path",
             "required": true,
-            "type": "integer",
-            "format": "int64",
+            "type": "string",
             "description": "The script execution Id"
           },
           {
@@ -222,6 +236,11 @@
         ],
         "operationId": "ScriptExecutionHistory_List",
         "description": "Lists all scripts execution history for the given cluster.",
+        "x-ms-examples": {
+          "Get Script Execution History List": {
+            "$ref": "../examples/GetScriptExecutionHistory.json"
+          }
+        },
         "parameters": [
           {
             "name": "resourceGroupName",

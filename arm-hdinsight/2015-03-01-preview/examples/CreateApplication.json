@@ -42,18 +42,18 @@
                 "id": "",
                 "name": "",
                 "type": "",
-                "eTag": "",
+                "etag": "",
                 "tags": {},
                 "properties": {
-                    "ComputeProfile": {},
-                    "InstallScriptActions": [],
-                    "UninstallScriptActions": [],
-                    "HttpsEndpoints": [],
-                    "SshEndpoints": [],
-                    "ProvisioningState": "",
-                    "ApplicationState": "",
+                    "computeProfile": {},
+                    "installScriptActions": [],
+                    "uninstallScriptActions": [],
+                    "httpsEndpoints": [],
+                    "sshEndpoints": [],
+                    "provisioningState": "",
+                    "applicationState": "",
                     "ErrorInfos": [],
-                    "CreatedDate": "2017-02-28"
+                    "createdDate": "2017-02-28"
                 }
             }
         }
