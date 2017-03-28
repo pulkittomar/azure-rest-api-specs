@@ -322,8 +322,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Gets or sets the ID of the application",
-          "type": "string"
+          "$ref": "./cluster.json#/definitions/SubResource",
+          "description": "Gets or sets the ID of the application"
         },
         "name": {
           "description": "Gets or sets the name of the application.",

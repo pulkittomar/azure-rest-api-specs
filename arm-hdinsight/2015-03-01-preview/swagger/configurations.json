@@ -240,6 +240,15 @@
         }
       }
     },
+    "WindowsOperatingSystemProfile": {
+      "description": "Gets or Sets Windows operation system settings.",
+      "properties": {
+        "rdpSettings": {
+          "$ref": "#/definitions/RdpSettings",
+          "description": "Gets or sets the RDP settings."
+        }
+      }
+    },
     "SshPublicKey": {
       "description": "Gets Ssh public key for the cluster nodes.",
       "properties": {
@@ -282,7 +291,7 @@
       "description": "Gets or sets the Windows operation systems profile, and configure remote desktop settings.",
       "properties": {
         "windowsOperatingSystemProfile": {
-          "$ref": "./cluster.json#/definitions/WindowsOperatingSystemProfile",
+          "$ref": "#/definitions/WindowsOperatingSystemProfile",
           "description": "Gets or sets the Windows OS profile."
         },
         "linuxOperatingSystemProfile": {
