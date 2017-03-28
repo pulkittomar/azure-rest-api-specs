@@ -15,13 +15,11 @@
   "produces": [
     "application/json"
   ],
-  "security": [
-    {
-      "azure_auth": [
-        "user_impersonation"
-      ]
-    }
-  ],
+  "security": [{
+    "azure_auth": [
+      "user_impersonation"
+    ]
+  }],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -41,8 +39,7 @@
         ],
         "operationId": "ScriptActions_Delete",
         "description": "Deletes a given persisted script action of the cluster.",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -89,8 +86,7 @@
             "$ref": "../examples/PostExecuteScriptAction.json"
           }
         },
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -143,8 +139,7 @@
             "$ref": "../examples/GetLinuxHadoopScriptAction.json"
           }
         },
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -190,8 +185,7 @@
             "$ref": "../examples/GetScriptActionById.json"
           }
         },
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -241,8 +235,7 @@
             "$ref": "../examples/GetScriptExecutionHistory.json"
           }
         },
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -283,8 +276,7 @@
         ],
         "operationId": "ScriptExecutionHistory_Promote",
         "description": "Promote ad-hoc script execution to a persisted script.",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,

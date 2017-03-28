@@ -5,17 +5,15 @@
         "api-version": "2015-03-01-preview",
         "subscriptionId": "subid",
         "executeScriptActionParameters": {
-            "scriptActions": [
-                {
-                    "name": "Test",
-                    "uri": "http://testurl.com/install.ssh",
-                    "roles": [
-                        "headnode",
-                        "workernode"
-                    ],
-                    "parameters": ""
-                }
-            ],
+            "scriptActions": [{
+                "name": "Test",
+                "uri": "http://testurl.com/install.ssh",
+                "roles": [
+                    "headnode",
+                    "workernode"
+                ],
+                "parameters": ""
+            }],
             "persistOnSuccess": "false"
         }
     },
@@ -25,6 +23,6 @@
                 "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
             }
         },
-        "200":{}
+        "200": {}
     }
 }

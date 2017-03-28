@@ -15,13 +15,11 @@
   "produces": [
     "application/json"
   ],
-  "security": [
-    {
-      "azure_auth": [
-        "user_impersonation"
-      ]
-    }
-  ],
+  "security": [{
+    "azure_auth": [
+      "user_impersonation"
+    ]
+  }],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -46,8 +44,7 @@
             "$ref": "../examples/GetHDInsightCapabilities.json"
           }
         },
-        "parameters": [
-          {
+        "parameters": [{
             "name": "location",
             "in": "path",
             "required": true,

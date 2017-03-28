@@ -9,8 +9,7 @@
     "responses": {
         "200": {
             "body": {
-                "value": [
-                    {
+                "value": [{
                         "scriptExecutionId": 391145124054712,
                         "name": "Test",
                         "applicationName": "app1",

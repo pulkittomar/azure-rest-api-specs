@@ -8,28 +8,24 @@
     "responses": {
         "200": {
             "body": {
-                "value": [
-                    {
-                        "scriptExecutionId": 386120808773799,
-                        "name": "app-install",
-                        "applicationName": "app",
-                        "uri": "http://app.com/public/hdi-app/20170301/hdinsight-app-install.sh",
-                        "parameters": "",
-                        "roles": [
-                            "edgenode"
-                        ],
-                        "startTime": "2017-03-22T21:40:37.8865514Z",
-                        "endTime": "2017-03-22T22:06:02.1584639Z",
-                        "status": "Succeeded",
-                        "operation": "AppInstall",
-                        "executionSummary": [
-                            {
-                                "status": "COMPLETED",
-                                "instanceCount": 1
-                            }
-                        ]
-                    }
-                ]
+                "value": [{
+                    "scriptExecutionId": 386120808773799,
+                    "name": "app-install",
+                    "applicationName": "app",
+                    "uri": "http://app.com/public/hdi-app/20170301/hdinsight-app-install.sh",
+                    "parameters": "",
+                    "roles": [
+                        "edgenode"
+                    ],
+                    "startTime": "2017-03-22T21:40:37.8865514Z",
+                    "endTime": "2017-03-22T22:06:02.1584639Z",
+                    "status": "Succeeded",
+                    "operation": "AppInstall",
+                    "executionSummary": [{
+                        "status": "COMPLETED",
+                        "instanceCount": 1
+                    }]
+                }]
             }
         }
     }

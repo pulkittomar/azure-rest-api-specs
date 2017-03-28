@@ -15,13 +15,11 @@
   "produces": [
     "application/json"
   ],
-  "security": [
-    {
-      "azure_auth": [
-        "user_impersonation"
-      ]
-    }
-  ],
+  "security": [{
+    "azure_auth": [
+      "user_impersonation"
+    ]
+  }],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -46,8 +44,7 @@
             "$ref": "../examples/CreateExtension.json"
           }
         },
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -103,8 +100,7 @@
         ],
         "description": "Get extension properties for HDInsight cluster extension.",
         "operationId": "Extension_Get",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
@@ -154,8 +150,7 @@
         ],
         "description": "Delete extension for HDInsight cluster.",
         "operationId": "Extension_Delete",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
