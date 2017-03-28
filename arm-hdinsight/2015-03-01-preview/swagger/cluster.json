@@ -321,98 +321,6 @@
     }
   },
   "definitions": {
-    "RdpSettings": {
-      "description": "Gets or sets the Remote desktop setting for cluster.",
-      "properties": {
-        "username": {
-          "type": "string",
-          "description": "Gets or sets the username for the RDP user."
-        },
-        "password": {
-          "type": "string",
-          "format": "password",
-          "description": "Gets or sets the password for the RDP user."
-        },
-        "expiryDate": {
-          "type": "string",
-          "format": "date",
-          "description": "Gets or sets the RDP expiry date(YYYY-MM-DD)."
-        }
-      }
-    },
-    "WindowsOperatingSystemProfile": {
-      "description": "Gets or Sets Windows operation system settings.",
-      "properties": {
-        "rdpSettings": {
-          "$ref": "#/definitions/RdpSettings",
-          "description": "Gets or sets the RDP settings."
-        }
-      }
-    },
-    "SshPublicKey": {
-      "description": "Gets or sets the ssh public key for the HDInsight cluster.",
-      "properties": {
-        "certificateData": {
-          "type": "string",
-          "description": "Gets or sets the certificate for SSH."
-        }
-      }
-    },
-    "SshProfile": {
-      "description": "Gets or sets the ssh profile for the HDInsight cluster",
-      "properties": {
-        "publicKeys": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SshPublicKey"
-          },
-          "description": "Gets or sets the list of SSH public keys."
-        }
-      }
-    },
-    "LinuxOperatingSystemProfile": {
-      "description": "Gets or sets the Linux Operating System profile.",
-      "properties": {
-        "username": {
-          "type": "string",
-          "description": "Gets or sets the username."
-        },
-        "password": {
-          "type": "string",
-          "format": "password",
-          "description": "Gets or sets the password."
-        },
-        "sshProfile": {
-          "$ref": "#/definitions/SshProfile",
-          "description": "Gets or sets the SSH profile."
-        }
-      }
-    },
-    "OsProfile": {
-      "description": "Gets or sets the type of Operating System profile.",
-      "properties": {
-        "windowsOperatingSystemProfile": {
-          "$ref": "#/definitions/WindowsOperatingSystemProfile",
-          "description": "Gets or sets the Windows OS profile."
-        },
-        "linuxOperatingSystemProfile": {
-          "$ref": "#/definitions/LinuxOperatingSystemProfile",
-          "description": "Gets or sets the Linux OS profile."
-        }
-      }
-    },
-    "RDPSettingsParameters": {
-      "properties": {
-        "osProfile": {
-          "$ref": "#/definitions/OsProfile",
-          "description": "Gets or sets the definition of a data factory gateway to be created or updated."
-        }
-      },
-      "required": [
-        "osProfile"
-      ],
-      "description": "Parameters specifying the data factory gateway definition for a create or update operation."
-    },
     "HttpSettingsParameters": {
       "properties": {
         "restAuthCredential.isEnabled": {
@@ -527,28 +435,6 @@
         }
       }
     },
-    "ScriptAction": {
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Gets or sets the name of the script action."
-        },
-        "uri": {
-          "type": "string",
-          "description": "Gets or sets the URI to the script."
-        },
-        "parameters": {
-          "type": "string",
-          "description": "Gets or sets the parameters for the script provided."
-        }
-      },
-      "required": [
-        "name",
-        "uri",
-        "parameters"
-      ],
-      "description": "Describes a script action on role on the cluster."
-    },
     "Role": {
       "properties": {
         "name": {
@@ -570,7 +456,7 @@
           "description": "Gets or sets the hardware profile."
         },
         "osProfile": {
-          "$ref": "#/definitions/OsProfile",
+          "$ref": "./configurations.json#/definitions/OsProfile",
           "description": "Gets or sets the operating system profile."
         },
         "virtualNetworkProfile": {
@@ -580,7 +466,7 @@
         "scriptActions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ScriptAction"
+            "$ref": "./scriptActions.json#/definitions/ScriptAction"
           },
           "description": "Gets or sets the list of script actions on the role."
         }
@@ -687,10 +573,7 @@
           "description": "Gets or sets the location of the cluster."
         },
         "tags": {
-          "type": [
-            "object",
-            "null"
-          ],
+          "type": "object",
           "x-nullable": true,
           "additionalProperties": {
             "type": "string"
@@ -1103,10 +986,7 @@
           "description": "Resource location"
         },
         "tags": {
-          "type": [
-            "object",
-            "null"
-          ],
+          "type": "object",
           "x-nullable": true,
           "additionalProperties": {
             "type": "string"
@@ -1121,7 +1001,6 @@
       "x-ms-azure-resource": true
     },
     "SubResource": {
-      "type": "object",
       "properties": {
         "id": {
           "type": "string",
